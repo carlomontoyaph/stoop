@@ -56,7 +56,7 @@ export default function Icon({ name, size = 24, stroke = 2, className = '', styl
       width={size} height={size} viewBox="0 0 24 24" fill="none"
       stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"
       className={`${name === 'spinner' ? 'spin' : ''} ${className}`.trim()} style={style} aria-hidden="true"
-      dangerouslySetInnerHTML={{ __html: d }}
+      dangerouslySetInnerHTML={{ __html: d }} // d is from static ICON_PATHS above — never user input
     />
   )
 }
