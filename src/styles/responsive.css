@@ -1,0 +1,98 @@
+/* =====================================================================
+   STOOP — Responsive breakpoints
+   Breakpoints: 900px, 768px, 600px, 480px
+   ===================================================================== */
+
+@media (max-width: 900px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 56px; }
+
+  .sidebar { display: none; }
+  .main-content { padding: 16px 16px 92px; }
+  .app-header { padding: 0 16px; }
+
+  .hamburger { display: inline-flex; }
+  .hide-mobile { display: none !important; }
+  .hide-desktop { display: initial; }
+
+  .page-title { font-size: 26px; }
+
+  /* Mobile bottom nav */
+  .mobile-bottom-nav {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    background: var(--bg); border-top: 1px solid var(--border);
+    height: 64px; padding: 6px 4px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  }
+  .mobile-bottom-nav .mnav {
+    flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 3px; color: var(--text-secondary); font-size: 10.5px; font-weight: 600;
+    border-radius: var(--r-md); min-height: 52px;
+  }
+  .mobile-bottom-nav .mnav.active { color: var(--secondary-dark); }
+  .mobile-bottom-nav .mnav.active svg { color: var(--secondary-dark); }
+
+  /* Drawer for full menu */
+  .mobile-drawer { display: block; }
+
+  /* Modals become bottom sheets */
+  .modal-backdrop { padding: 0; align-items: flex-end; }
+  .modal { max-width: 100%; max-height: 92vh; border-radius: 16px 16px 0 0; animation: sheetIn .3s ease; }
+  .modal-wide { max-width: 100%; }
+  @keyframes sheetIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Hide data tables; card lists used instead via JS */
+  .desktop-table { display: none; }
+  .mobile-cards { display: flex !important; }
+
+  /* Toast clears mobile bottom nav (64px) */
+  .toast { bottom: 80px; }
+}
+
+@media (min-width: 769px) {
+  .mobile-cards { display: none; }
+}
+
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr !important; }
+  .form-2col, .form-3col { grid-template-columns: 1fr !important; }
+}
+
+/* =====================================================================
+   LANDING — card hovers + responsive grids
+   ===================================================================== */
+.pain-card:hover, .feat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--secondary);
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .hero-grid .h1 { font-size: 40px; }
+  .pain-grid { grid-template-columns: 1fr !important; }
+  .feat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+@media (max-width: 600px) {
+  .hero-grid { padding: 48px 20px 60px !important; }
+  .hero-grid .h1 { font-size: 32px; }
+  .feat-grid { grid-template-columns: 1fr !important; }
+  .price-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr !important; }
+  .footer-cta { padding: 28px 20px !important; }
+  .footer-cta .h2 { font-size: 26px; }
+  .trust-strip { gap: 16px !important; flex-direction: column; align-items: center; }
+  .ob-2col { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 900px) {
+  .dash-grid { grid-template-columns: 1fr !important; }
+  .md-grid { grid-template-columns: 1fr !important; }
+}
